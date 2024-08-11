@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdController;
 
 
-
 Route::get('/', function () {   #homepage
     return view('welcome');
 });
