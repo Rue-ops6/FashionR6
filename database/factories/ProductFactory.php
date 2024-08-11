@@ -14,6 +14,18 @@ class ProductFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+
+     
+    private function generateRandomImage($path)
+    {
+        $files = scandir($path);
+        $files = array_diff($files, array('.', '..'));
+
+        return fake()->randomElement($files);
+    }
+
+
     public function definition(): array
     {
         return [
@@ -21,7 +33,8 @@ class ProductFactory extends Factory
             'price' => fake()->randomFloat(1),
             'description' => fake()->text(),
             'pub' => fake()->numberBetween(0, 1),
-            'image' => fake()->image(public_path('assets/images/product')),        
+            #'image' => basename(fake()->image(public_path('assets/images/product'))),
+            'image' => $this->generateRandomImage(public_path('assets/images/product')),        
         ];
     }
 }

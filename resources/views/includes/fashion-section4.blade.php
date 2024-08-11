@@ -24,10 +24,10 @@
                                 <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="# {{--{{route('prod-details', $prod['id'])}} --}}" class="product-title-link">{{$prod['prodTitle']}}</a>
+                                            <a href="{{route('prod-details', $prod['id'])}}" class="product-title-link">{{$prod['prodTitle']}}</a>
                                         </h5>
 
-                                        <p class="product-p">{{Str::limit($prod['description'], 10, $end = ' ...')}}</p>
+                                        <p class="product-p">{{Str::limit($prod['description'], 20, $end = ' ...')}}</p>
                                     </div>
 
                                     <small class="product-price text-muted ms-auto mt-auto mb-5">{{$prod->price}} $</small>
