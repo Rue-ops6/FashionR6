@@ -8,6 +8,14 @@ Route::get('/', function () {   #homepage
     return view('welcome');
 });
 
+/*#comment it until the project is done as it hides errors and bring us to home 
+Route::fallback(function () {
+    return redirect("/");
+});
+//anotherway
+Route::fallback(fn() => redirect(""));
+*/
+
 
 #<!------Fashion-------¡> 
 Route::group([
