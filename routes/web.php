@@ -4,10 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdController;
 
 
-
 Route::get('/', function () {   #homepage
     return view('welcome');
 });
+
+/*#comment it until the project is done as it hides errors and bring us to home 
+Route::fallback(function () {
+    return redirect("/");
+});
+//anotherway
+Route::fallback(fn() => redirect(""));
+*/
 
 
 #<!------Fashion-------¡> 
@@ -20,6 +27,17 @@ Route::group([
     Route::get('home', 'LatestProds')->name('index');
     Route::get('add', 'create')->name('add');
     Route::post('', 'store')->name('store');
+
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
+
+    Route::get('details/{id}','show')->name('details');
+    Route::delete('del/{id}', 'softdel')->name('delete');
+    Route::get('trashed', 'showDeleted')->name('trashed');
+    Route::patch('{id}', 'restore')->name('restore');
+    Route::delete('{id}', 'destroy')->name('destroy');
+    
+                        
 });
 
 
